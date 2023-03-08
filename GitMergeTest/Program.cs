@@ -3,11 +3,26 @@ using System;
 
 namespace GitMergeTest
 {
+    // { 2023. 03. 08. Ruler 클래스 코드 위치 변경 / Alpha
+
     internal class Program
     {
         static void Main(string[] args)
         {
-            Ruler ruler = new Ruler(10);
+            // {    2023. 03. 08. 유저 입력 기능을 추가함. / Beta
+            string userInput = string.Empty;
+
+            Console.WriteLine("이 프로그램은 Cm 를 Inch로 변환하는 프로그램입니다.");
+            Console.Write("Cm 값을 입력 : ");
+            userInput = Console.ReadLine();
+
+            int cmIuput = 0;
+            int.TryParse(userInput, out cmIuput);
+
+
+            Ruler ruler = new Ruler(cmIuput);
+            // {    2023. 03. 08. 유저 입력 기능을 추가함. / Beta
+
 
             ruler.Run();
         }
@@ -28,7 +43,7 @@ namespace GitMergeTest
 
             private set { this.SetInch(value); }
         }
-
+        
         public Ruler(int cmValue) { Centimeter = cmValue; }
 
         public void Run()
@@ -39,4 +54,7 @@ namespace GitMergeTest
         private void SetInch(float inchValue) { Centimeter = (int)(inchValue / ONE_INCH); }
             // } 2023. 03. 08.  private SetInch 함수를 새로 추가함. / Gamma
     }
+    // } 2023. 03. 08. Ruler 클래스 코드 위치 변경 / Alpha
+
+
 }
