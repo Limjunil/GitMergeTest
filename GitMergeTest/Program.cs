@@ -38,7 +38,7 @@ namespace GitMergeTest
 
             private set { Centimeter = (int)(value / ONE_INCH); }
         }
-
+        
         public Ruler(int cmValue) { Centimeter = cmValue; }
 
         public void Run()
